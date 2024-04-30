@@ -62,16 +62,20 @@ const controller = new TodoController(todoModel, todoView);
 
 document.querySelector('#add-todo').addEventListener('click', () => {
     let input = document.querySelector('#todo-input');
-    const todoText = input.value;
-    controller.addTodo(todoText);
-    input.value = '';
+   if(input.value) {
+            const todoText = input.value;
+            controller.addTodo(todoText);
+            input.value = '';
+        } else {alert('Додай назву!')}
 });
 
 document.querySelector('#todo-input').addEventListener('keydown', (e) => {
     if (e.code == 'Enter') {
         let input = document.querySelector('#todo-input');
-        const todoText = input.value;
-        controller.addTodo(todoText);
-        input.value = '';
+        if(input.value) {
+            const todoText = input.value;
+            controller.addTodo(todoText);
+            input.value = '';
+        } else {alert('Додай назву!')}
     }
 });
